@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "cushion",
+  "key": {
+    "#": { "item": "minecraft:light_gray_wool" }
+  },
+  "pattern": [ "###" ],
+  "result": {
+    "item": "cushionbackport:light_gray_cushion"
+  }
+}

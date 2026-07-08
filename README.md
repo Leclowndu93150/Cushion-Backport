@@ -19,7 +19,3 @@ A Cushion is a small decoration you can place on any flat surface and sit on. It
 - 1.20.1 (Fabric, Forge)
 - 1.21.1 (Fabric, NeoForge)
 - 26.1.2 (Fabric, NeoForge)
-
-## Dependencies
-
-Just Enough Items (JEI) is bundled for recipe viewing.

@@ -2,8 +2,58 @@
   "type": "minecraft:crafting_shapeless",
   "group": "cushion_dye",
   "ingredients": [
-    "minecraft:light_gray_dye",
-    [ "cushionbackport:white_cushion","cushionbackport:orange_cushion","cushionbackport:magenta_cushion","cushionbackport:light_blue_cushion","cushionbackport:yellow_cushion","cushionbackport:lime_cushion","cushionbackport:pink_cushion","cushionbackport:gray_cushion","cushionbackport:cyan_cushion","cushionbackport:purple_cushion","cushionbackport:blue_cushion","cushionbackport:brown_cushion","cushionbackport:green_cushion","cushionbackport:red_cushion","cushionbackport:black_cushion" ]
+    {
+      "item": "minecraft:light_gray_dye"
+    },
+    [
+      {
+        "item": "cushionbackport:white_cushion"
+      },
+      {
+        "item": "cushionbackport:orange_cushion"
+      },
+      {
+        "item": "cushionbackport:magenta_cushion"
+      },
+      {
+        "item": "cushionbackport:light_blue_cushion"
+      },
+      {
+        "item": "cushionbackport:yellow_cushion"
+      },
+      {
+        "item": "cushionbackport:lime_cushion"
+      },
+      {
+        "item": "cushionbackport:pink_cushion"
+      },
+      {
+        "item": "cushionbackport:gray_cushion"
+      },
+      {
+        "item": "cushionbackport:cyan_cushion"
+      },
+      {
+        "item": "cushionbackport:purple_cushion"
+      },
+      {
+        "item": "cushionbackport:blue_cushion"
+      },
+      {
+        "item": "cushionbackport:brown_cushion"
+      },
+      {
+        "item": "cushionbackport:green_cushion"
+      },
+      {
+        "item": "cushionbackport:red_cushion"
+      },
+      {
+        "item": "cushionbackport:black_cushion"
+      }
+    ]
   ],
-  "result": { "id": "cushionbackport:light_gray_cushion" }
+  "result": {
+    "id": "cushionbackport:light_gray_cushion"
+  }
 }
