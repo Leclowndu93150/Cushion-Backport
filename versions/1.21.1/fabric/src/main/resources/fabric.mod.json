@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "${mod_id}",
+  "version": "${version}",
+  "name": "${mod_name}",
+  "description": "${description}",
+  "license": "${license}",
+  "entrypoints": {
+    "main": [
+      "com.leclowndu93150.cushionbackport.CushionbackportFabric"
+    ],
+    "client": [
+      "com.leclowndu93150.cushionbackport.fabric.CushionbackportFabricClient"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=${fabric_loader_version}",
+    "minecraft": "${minecraft_version}",
+    "java": ">=${java_version}"
+  },
+  "icon": "icon.png"
+}

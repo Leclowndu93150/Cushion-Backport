@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "cushion",
+  "key": { "#": "minecraft:magenta_wool" },
+  "pattern": [ "###" ],
+  "result": { "id": "cushionbackport:magenta_cushion" }
+}

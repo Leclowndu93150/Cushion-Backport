@@ -1,0 +1,13 @@
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+.kotlin
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+runs/
+run/
+**/run/
+.DS_Store
