@@ -41,7 +41,7 @@ public final class CBRegistryForge {
                 .build("cushion"));
         CBEntities.CUSHION = cushion::get;
 
-        for (DyeColor color : DyeColor.values()) {
+        for (DyeColor color : CBItems.VANILLA_COLORS) {
             RegistryObject<CushionItem> item = ITEMS.register(color.getName() + "_cushion", () -> new CushionItem(new Item.Properties().tab(TAB), color));
             CBItems.CUSHIONS.put(color, item::get);
         }

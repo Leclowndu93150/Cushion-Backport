@@ -37,7 +37,7 @@ public final class CBRegistryForge {
                 .build("cushion"));
         CBEntities.CUSHION = cushion::get;
 
-        for (DyeColor color : DyeColor.values()) {
+        for (DyeColor color : CBItems.VANILLA_COLORS) {
             RegistryObject<CushionItem> item = ITEMS.register(color.getName() + "_cushion", () -> new CushionItem(new Item.Properties(), color));
             CBItems.CUSHIONS.put(color, item::get);
         }
@@ -51,7 +51,7 @@ public final class CBRegistryForge {
             .title(Component.translatable("itemGroup.cushionbackport"))
             .icon(() -> new ItemStack(CBItems.cushion(DyeColor.RED)))
             .displayItems((params, output) -> {
-                for (DyeColor color : DyeColor.values()) {
+                for (DyeColor color : CBItems.VANILLA_COLORS) {
                     output.accept(CBItems.cushion(color));
                 }
             })

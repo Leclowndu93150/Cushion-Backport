@@ -34,7 +34,7 @@ public final class CBRegistryFabric {
         Registry.register(BuiltInRegistries.ENTITY_TYPE, id("cushion"), cushionType);
         CBEntities.CUSHION = () -> cushionType;
 
-        for (DyeColor color : DyeColor.values()) {
+        for (DyeColor color : CBItems.VANILLA_COLORS) {
             ResourceKey<Item> itemKey = ResourceKey.create(Registries.ITEM, id(color.getName() + "_cushion"));
             CushionItem item = new CushionItem(new Item.Properties().setId(itemKey), color);
             Registry.register(BuiltInRegistries.ITEM, itemKey, item);
@@ -50,7 +50,7 @@ public final class CBRegistryFabric {
             .title(Component.translatable("itemGroup.cushionbackport"))
             .icon(() -> new ItemStack(CBItems.cushion(DyeColor.RED)))
             .displayItems((params, output) -> {
-                for (DyeColor color : DyeColor.values()) {
+                for (DyeColor color : CBItems.VANILLA_COLORS) {
                     output.accept(CBItems.cushion(color));
                 }
             })

@@ -10,6 +10,13 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 
 public class CBItems {
+    public static final DyeColor[] VANILLA_COLORS = {
+        DyeColor.WHITE, DyeColor.ORANGE, DyeColor.MAGENTA, DyeColor.LIGHT_BLUE,
+        DyeColor.YELLOW, DyeColor.LIME, DyeColor.PINK, DyeColor.GRAY,
+        DyeColor.LIGHT_GRAY, DyeColor.CYAN, DyeColor.PURPLE, DyeColor.BLUE,
+        DyeColor.BROWN, DyeColor.GREEN, DyeColor.RED, DyeColor.BLACK
+    };
+
     public static final Map<DyeColor, Supplier<CushionItem>> CUSHIONS = new HashMap<>();
 
     private static final Map<DyeColor, Block> WOOL_BY_COLOR = new HashMap<>();

@@ -4,7 +4,9 @@ import com.leclowndu93150.cushionbackport.Cushionbackport;
 import com.leclowndu93150.cushionbackport.entity.Cushion;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
-import java.util.EnumMap;
+import com.leclowndu93150.cushionbackport.registry.CBItems;
+import java.util.HashMap;
+import java.util.Map;
 import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
@@ -16,8 +18,8 @@ import net.minecraft.util.Util;
 import net.minecraft.world.item.DyeColor;
 
 public class CushionRenderer extends EntityRenderer<Cushion, CushionRenderState> {
-    private static final EnumMap<DyeColor, Identifier> TEXTURES_BY_COLOR = Util.make(new EnumMap<>(DyeColor.class), textures -> {
-        for (DyeColor color : DyeColor.values()) {
+    private static final Map<DyeColor, Identifier> TEXTURES_BY_COLOR = Util.make(new HashMap<>(), textures -> {
+        for (DyeColor color : CBItems.VANILLA_COLORS) {
             textures.put(color, Identifier.fromNamespaceAndPath(Cushionbackport.MOD_ID, "textures/entity/cushion/" + color.getName() + "_cushion.png"));
         }
     });
@@ -32,7 +34,7 @@ public class CushionRenderer extends EntityRenderer<Cushion, CushionRenderState>
     public void extractRenderState(Cushion cushion, CushionRenderState state, float partialTicks) {
         super.extractRenderState(cushion, state, partialTicks);
         state.direction = Direction.fromYRot(cushion.getYRot());
-        state.texture = TEXTURES_BY_COLOR.get(cushion.getColor());
+        state.texture = texture(cushion.getColor());
     }
 
     @Override
@@ -51,5 +53,9 @@ public class CushionRenderer extends EntityRenderer<Cushion, CushionRenderState>
     @Override
     public CushionRenderState createRenderState() {
         return new CushionRenderState();
+    }
+
+    private static Identifier texture(DyeColor color) {
+        return TEXTURES_BY_COLOR.getOrDefault(color, TEXTURES_BY_COLOR.get(DyeColor.WHITE));
     }
 }

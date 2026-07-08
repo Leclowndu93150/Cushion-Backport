@@ -4,7 +4,9 @@ import com.leclowndu93150.cushionbackport.Cushionbackport;
 import com.leclowndu93150.cushionbackport.entity.Cushion;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Vector3f;
-import java.util.EnumMap;
+import com.leclowndu93150.cushionbackport.registry.CBItems;
+import java.util.HashMap;
+import java.util.Map;
 import net.minecraft.Util;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRenderer;
@@ -15,8 +17,8 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.DyeColor;
 
 public class CushionRenderer extends EntityRenderer<Cushion> {
-    private static final EnumMap<DyeColor, ResourceLocation> TEXTURES_BY_COLOR = Util.make(new EnumMap<>(DyeColor.class), textures -> {
-        for (DyeColor color : DyeColor.values()) {
+    private static final Map<DyeColor, ResourceLocation> TEXTURES_BY_COLOR = Util.make(new HashMap<>(), textures -> {
+        for (DyeColor color : CBItems.VANILLA_COLORS) {
             textures.put(color, new ResourceLocation(Cushionbackport.MOD_ID, "textures/entity/cushion/" + color.getName() + "_cushion.png"));
         }
     });
@@ -33,7 +35,7 @@ public class CushionRenderer extends EntityRenderer<Cushion> {
         poseStack.mulPose(Vector3f.YP.rotationDegrees(Direction.fromYRot(cushion.getYRot()).toYRot()));
         poseStack.mulPose(Vector3f.XP.rotationDegrees(180.0F));
         poseStack.translate(0.0, -0.25, 0.0);
-        ResourceLocation texture = TEXTURES_BY_COLOR.get(cushion.getColor());
+        ResourceLocation texture = texture(cushion.getColor());
         this.model.renderToBuffer(
             poseStack,
             bufferSource.getBuffer(this.model.renderType(texture)),
@@ -50,6 +52,10 @@ public class CushionRenderer extends EntityRenderer<Cushion> {
 
     @Override
     public ResourceLocation getTextureLocation(Cushion cushion) {
-        return TEXTURES_BY_COLOR.get(cushion.getColor());
+        return texture(cushion.getColor());
+    }
+
+    private static ResourceLocation texture(DyeColor color) {
+        return TEXTURES_BY_COLOR.getOrDefault(color, TEXTURES_BY_COLOR.get(DyeColor.WHITE));
     }
 }

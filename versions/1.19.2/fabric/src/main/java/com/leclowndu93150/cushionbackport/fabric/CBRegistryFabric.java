@@ -29,7 +29,7 @@ public final class CBRegistryFabric {
             .icon(() -> new ItemStack(CBItems.cushion(DyeColor.RED)))
             .build();
 
-        for (DyeColor color : DyeColor.values()) {
+        for (DyeColor color : CBItems.VANILLA_COLORS) {
             CushionItem item = new CushionItem(new Item.Properties().tab(tab), color);
             Registry.register(Registry.ITEM, id(color.getName() + "_cushion"), item);
             CBItems.CUSHIONS.put(color, () -> item);

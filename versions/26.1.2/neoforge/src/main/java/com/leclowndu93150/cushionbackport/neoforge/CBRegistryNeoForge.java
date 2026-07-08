@@ -39,7 +39,7 @@ public final class CBRegistryNeoForge {
                 .build(cushionKey)
         );
 
-        for (DyeColor color : DyeColor.values()) {
+        for (DyeColor color : CBItems.VANILLA_COLORS) {
             DeferredItem<CushionItem> holder = ITEMS.registerItem(
                 color.getName() + "_cushion",
                 properties -> new CushionItem(properties, color)
@@ -56,7 +56,7 @@ public final class CBRegistryNeoForge {
             .title(Component.translatable("itemGroup.cushionbackport"))
             .icon(() -> new ItemStack(CBItems.cushion(DyeColor.RED)))
             .displayItems((params, output) -> {
-                for (DyeColor color : DyeColor.values()) {
+                for (DyeColor color : CBItems.VANILLA_COLORS) {
                     output.accept(CBItems.cushion(color));
                 }
             })

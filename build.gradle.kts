@@ -3,7 +3,7 @@ plugins {
 }
 
 group = "com.leclowndu93150"
-version = "1.0.1"
+version = "1.0.2"
 
 prism {
     curseMaven()
@@ -17,7 +17,7 @@ prism {
 
     publishing {
         type = STABLE
-        changelog = "fixed recipes in 1.21.1 + added 26.2 support"
+        changelog = "add support for dye adding mods"
 
         curseforge {
             accessToken = providers.environmentVariable("CURSEFORGE_TOKEN")
