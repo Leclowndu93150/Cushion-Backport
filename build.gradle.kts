@@ -3,7 +3,7 @@ plugins {
 }
 
 group = "com.leclowndu93150"
-version = "1.0.2"
+version = "1.0.3"
 
 prism {
     curseMaven()
@@ -17,7 +17,7 @@ prism {
 
     publishing {
         type = STABLE
-        changelog = "add support for dye adding mods"
+        changelogFile = "changelog.md"
 
         curseforge {
             accessToken = providers.environmentVariable("CURSEFORGE_TOKEN")
@@ -97,7 +97,7 @@ prism {
             }
         }
         neoforge {
-            loaderVersion = "21.1.235"
+            loaderVersion = "21.1.228"
             loaderVersionRange = "[4,)"
             dependencies {
                 modImplementation("curse.maven:jei-238222:8376022")

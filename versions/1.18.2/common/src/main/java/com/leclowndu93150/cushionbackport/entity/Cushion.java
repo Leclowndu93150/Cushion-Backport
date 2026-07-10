@@ -13,6 +13,7 @@ import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
@@ -97,6 +98,11 @@ public class Cushion extends BlockAttachedEntity {
     }
 
     @Override
+    public void onPassengerTurned(Entity passenger) {
+        passenger.setYBodyRot(passenger.getYRot());
+    }
+
+    @Override
     public double getPassengersRidingOffset() {
         return this.getBbHeight();
     }
@@ -133,7 +139,7 @@ public class Cushion extends BlockAttachedEntity {
             boundingBox.minX, boundingBox.minY - 0.015625, boundingBox.minZ, Math.nextDown(boundingBox.maxX), boundingBox.minY, Math.nextDown(boundingBox.maxZ)
         );
 
-        for (BlockPos blockPos : BlockPos.betweenClosed((int) anchorBox.minX, (int) anchorBox.minY, (int) anchorBox.minZ, (int) anchorBox.maxX, (int) anchorBox.maxY, (int) anchorBox.maxZ)) {
+        for (BlockPos blockPos : BlockPos.betweenClosed(Mth.floor(anchorBox.minX), Mth.floor(anchorBox.minY), Mth.floor(anchorBox.minZ), Mth.floor(anchorBox.maxX), Mth.floor(anchorBox.maxY), Mth.floor(anchorBox.maxZ))) {
             BlockState blockState = level.getBlockState(blockPos);
             VoxelShape shape = blockState.getShape(level, blockPos);
             if (!shape.isEmpty() && shape.bounds().move(blockPos).intersects(anchorBox)) {
@@ -153,7 +159,7 @@ public class Cushion extends BlockAttachedEntity {
         }
 
         AABB inner = boundingBox.deflate(1.0E-7);
-        for (BlockPos blockPos : BlockPos.betweenClosed((int) inner.minX, (int) inner.minY, (int) inner.minZ, (int) inner.maxX, (int) inner.maxY, (int) inner.maxZ)) {
+        for (BlockPos blockPos : BlockPos.betweenClosed(Mth.floor(inner.minX), Mth.floor(inner.minY), Mth.floor(inner.minZ), Mth.floor(inner.maxX), Mth.floor(inner.maxY), Mth.floor(inner.maxZ))) {
             if (!level.getBlockState(blockPos).isCollisionShapeFullBlock(level, blockPos)) {
                 return true;
             }
