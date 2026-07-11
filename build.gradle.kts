@@ -3,7 +3,7 @@ plugins {
 }
 
 group = "com.leclowndu93150"
-version = "1.0.3"
+version = "1.0.4"
 
 prism {
     curseMaven()
@@ -101,6 +101,22 @@ prism {
             loaderVersionRange = "[4,)"
             dependencies {
                 modImplementation("curse.maven:jei-238222:8376022")
+            }
+        }
+    }
+
+    version("1.21.11") {
+        javaVersion = 21
+        minecraftVersions("1.21.11")
+        fabric {
+            loaderVersion = "0.19.3"
+            fabricApi("0.141.4+1.21.11")
+        }
+        neoforge {
+            loaderVersion = "21.11.42"
+            loaderVersionRange = "[4,)"
+            dependencies {
+                modImplementation("curse.maven:jei-238222:8411622")
             }
         }
     }

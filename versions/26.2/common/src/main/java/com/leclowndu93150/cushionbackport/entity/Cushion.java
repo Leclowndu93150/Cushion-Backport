@@ -1,5 +1,6 @@
 package com.leclowndu93150.cushionbackport.entity;
 
+import com.leclowndu93150.cushionbackport.CushionConfig;
 import com.leclowndu93150.cushionbackport.registry.CBEntities;
 import com.leclowndu93150.cushionbackport.registry.CBItems;
 import com.leclowndu93150.cushionbackport.registry.CBSounds;
@@ -84,6 +85,10 @@ public class Cushion extends BlockAttachedEntity {
                 }
                 return InteractionResult.SUCCESS;
             }
+            return InteractionResult.PASS;
+        }
+
+        if (CushionConfig.get().preventCushionToCushionMovement && player.getVehicle() instanceof Cushion) {
             return InteractionResult.PASS;
         }
 

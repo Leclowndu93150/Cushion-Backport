@@ -1,5 +1,6 @@
 package com.leclowndu93150.cushionbackport.entity;
 
+import com.leclowndu93150.cushionbackport.CushionConfig;
 import com.leclowndu93150.cushionbackport.registry.CBEntities;
 import com.leclowndu93150.cushionbackport.registry.CBItems;
 import com.leclowndu93150.cushionbackport.registry.CBSounds;
@@ -77,6 +78,10 @@ public class Cushion extends BlockAttachedEntity {
             return InteractionResult.PASS;
         }
 
+        if (CushionConfig.get().preventCushionToCushionMovement && player.getVehicle() instanceof Cushion) {
+            return InteractionResult.PASS;
+        }
+
         if (!player.isSecondaryUseActive() && !this.isVehicle() && (this.level.isClientSide() || player.startRiding(this))) {
             if (!this.level.isClientSide()) {
                 this.playSound(CBSounds.CUSHION_SIT.get(), 1.0F, 1.0F);
@@ -104,7 +109,7 @@ public class Cushion extends BlockAttachedEntity {
 
     @Override
     public double getPassengersRidingOffset() {
-        return this.getBbHeight();
+        return 0.0;
     }
 
     @Override
