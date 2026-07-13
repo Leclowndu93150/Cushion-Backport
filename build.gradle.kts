@@ -3,7 +3,7 @@ plugins {
 }
 
 group = "com.leclowndu93150"
-version = "1.0.4"
+version = "1.0.5"
 
 prism {
     curseMaven()

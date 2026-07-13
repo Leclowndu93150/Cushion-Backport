@@ -19,7 +19,7 @@ public class CushionModel extends EntityModel<CushionRenderState> {
         PartDefinition root = meshDefinition.getRoot();
         root.addOrReplaceChild(
             "cushion",
-            CubeListBuilder.create().texOffs(0, 0).addBox(-8.0F, -4.0F, -8.0F, 16.0F, 4.0F, 16.0F, new CubeDeformation(-0.05F)),
+            CubeListBuilder.create().texOffs(0, 0).addBox(-8.0F, -4.0F, -8.0F, 16.0F, 4.0F, 16.0F, new CubeDeformation(-0.005F)),
             PartPose.offset(0.0F, 4.0F, 0.0F)
         );
         return LayerDefinition.create(meshDefinition, 64, 64);
